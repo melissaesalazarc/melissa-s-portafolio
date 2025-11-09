@@ -1,0 +1,147 @@
+:root {
+  --bg: #0b0014;
+  --card: #0f1724;
+  --accent: #7dd3fc;
+  --text: #e6eef8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg), #0b0014);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 50;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.hero-landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  color: #012;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.section-inner {
+  max-width: 900px;
+  padding: 3rem;
+}
+
+.section-content {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+}
+
+.footer {
+  padding: 1.5rem;
+  text-align: center;
+  opacity: 0.7;
+}
+/* ✅ GRADIENT LIQUID BLOB BACKGROUND */
+.gradient-blob {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, #ff8ad8, transparent 60%),
+              radial-gradient(circle at 70% 60%, #a07bff, transparent 60%),
+              radial-gradient(circle at 40% 80%, #ffe27a, transparent 60%);
+  filter: blur(80px) saturate(1.3);
+  animation: blobMove 18s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+/* ANIMACIÓN DEL BLOB — cambia escala, posición y forma suave */
+@keyframes blobMove {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: blur(80px);
+  }
+  25% {
+    transform: scale(1.15) translate(-30px, -20px);
+    filter: blur(95px);
+  }
+  50% {
+    transform: scale(0.95) translate(20px, 40px);
+    filter: blur(75px);
+  }
+  75% {
+    transform: scale(1.2) translate(-10px, 20px);
+    filter: blur(100px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
