@@ -16,6 +16,14 @@ export default function ThreeDCarousel() {
 
   const projects = [
     {
+      title: "Pictolingo, andorid app",
+      company: "Nuevo Amanecer • 2023",
+      description:
+        "Android educational app developed in Kotlin as part of a team project for a non-profit organization supporting children with neurological disabilities. I was responsible for designing and implementing three interactive mini-games: a puzzle game, a word-building activity, and a memory match game. My work focused on creating intuitive game logic, responsive UI components, and engaging learning experiences tailored to the needs of young users.",
+      image: neorisImg ,
+      url: "https://youtu.be/H0J7G12T8KI",
+    },
+    {
       title: "Dashboard Platform with Chatbot",
       company: "Neoris • 2024",
       description:
