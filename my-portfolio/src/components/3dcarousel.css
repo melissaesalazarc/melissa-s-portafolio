@@ -10,7 +10,7 @@
   gap: 50px; /* Espacio más amplio entre tarjetas */
   padding: 30px;
   overflow-x: scroll;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scrollbar-width: none;
 }
 
@@ -33,6 +33,10 @@
   transform-style: preserve-3d;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  flex-shrink: 0;
+  pointer-events: auto;
+   position: relative;
+   z-index: 2;
 }
 
 .carousel-card:hover {
