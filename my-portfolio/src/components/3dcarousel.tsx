@@ -4,7 +4,7 @@ import "./3dcarousel.css";
 import neorisImg from "../assets/NEORIS.png";
 import xcienImg from "../assets/XCIEN.png";
 import baemiImg from "../assets/BAEMI.png";
-import pictolingo from "../assets/pictolingo.png";
+import pictolingo from "../assets/PICTOLINGO.png";
 
 export default function ThreeDCarousel() {
   const sliderRef = useRef<HTMLDivElement | null>(null);
