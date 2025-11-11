@@ -4,6 +4,7 @@ import "./3dcarousel.css";
 import neorisImg from "../assets/NEORIS.png";
 import xcienImg from "../assets/XCIEN.png";
 import baemiImg from "../assets/BAEMI.png";
+import pictolingo from "../assets/pictolingo.png";
 
 export default function ThreeDCarousel() {
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -20,8 +21,8 @@ export default function ThreeDCarousel() {
       company: "Nuevo Amanecer • 2023",
       description:
         "Android educational app developed in Kotlin as part of a team project for a non-profit organization supporting children with neurological disabilities. I was responsible for designing and implementing three interactive mini-games: a puzzle game, a word-building activity, and a memory match game. My work focused on creating intuitive game logic, responsive UI components, and engaging learning experiences tailored to the needs of young users.",
-      image: neorisImg ,
-      url: "https://youtu.be/H0J7G12T8KI",
+      image: pictolingo ,
+      url: "https://youtu.be/2j5H3laLR_c",
     },
     {
       title: "Dashboard Platform with Chatbot",
