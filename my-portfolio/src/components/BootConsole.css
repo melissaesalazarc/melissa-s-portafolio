@@ -1,0 +1,81 @@
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-boot);
+  display: grid;
+  align-items: end;
+  padding: var(--margin);
+  padding-bottom: clamp(48px, 10svh, 120px);
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
+}
+
+.boot--leaving {
+  opacity: 0;
+  transform: translate3d(0, -2%, 0);
+  pointer-events: none;
+}
+
+.boot__log {
+  margin: 0;
+  font: 400 clamp(0.875rem, 0.8rem + 0.4vw, 1.125rem) / 1.7 var(--font-mono); /* taste-skill-ignore: salida de consola */
+  white-space: pre-wrap;
+}
+
+.boot__line {
+  display: inline;
+}
+
+.boot__art {
+  display: block;
+  color: var(--sign);
+  font-size: 0.85em;
+  line-height: 1.2;
+  animation: boot-art 380ms var(--ease-out) both;
+}
+
+.boot__line:nth-child(2) {
+  color: var(--go);
+}
+
+@keyframes boot-art {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.boot__caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--ink);
+  animation: boot-blink 900ms steps(1) infinite;
+}
+
+.boot__skip {
+  position: absolute;
+  top: var(--margin);
+  right: var(--margin);
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  background: var(--surface-2);
+  color: var(--ink);
+  font: 500 var(--step-small) / 1 var(--font-text);
+  cursor: pointer;
+}
+
+.boot__skip:hover {
+  background: var(--sign);
+}
+
+@keyframes boot-blink {
+  50% {
+    opacity: 0;
+  }
+}

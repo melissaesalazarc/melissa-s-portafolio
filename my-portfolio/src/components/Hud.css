@@ -1,0 +1,199 @@
+.hud {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: var(--z-hud);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 var(--margin);
+}
+
+.hud--top {
+  top: 0;
+  height: 72px;
+  transition: background-color 240ms var(--ease-out);
+}
+
+/* Fuera de la esquina, la barra toma el asfalto para que nada pase por debajo del texto. */
+.hud--solid {
+  background: rgba(13, 15, 18, 0.86);
+}
+
+.hud--bottom {
+  bottom: 0;
+  height: 52px;
+  pointer-events: none;
+  transition: background-color 240ms var(--ease-out);
+}
+
+.hud--top.hud--solid ~ .hud--bottom {
+  background: rgba(13, 15, 18, 0.86);
+}
+
+/* En contacto la barra se vuelve el rojo del ALTO. */
+.hud--alto,
+.hud--top.hud--alto ~ .hud--bottom {
+  background: #c8102e;
+}
+
+.hud--alto .hud__links a,
+.hud--top.hud--alto ~ .hud--bottom .hud__readout {
+  color: #ffffff;
+}
+
+.hud--alto .hud__links a::after {
+  background: #ffffff;
+}
+
+.hud__mark {
+  font-weight: 600;
+  font-size: var(--step-body);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.hud__links {
+  display: flex;
+  gap: clamp(16px, 2vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hud__links a,
+.hud__mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.hud__links a {
+  color: var(--muted);
+  font-size: var(--step-small);
+  transition: color 160ms var(--ease-out);
+}
+
+.hud__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--go);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease-out);
+}
+
+.hud__links a:hover,
+.hud__links a[aria-current] {
+  color: var(--ink);
+}
+
+.hud__links a:hover::after,
+.hud__links a[aria-current]::after {
+  transform: scaleX(1);
+}
+
+/* Lecturas del sistema: la mono solo vive aquí y en la consola. */
+.hud__readout,
+.hud__light {
+  font: 400 var(--step-small) / 1 var(--font-mono); /* taste-skill-ignore: salida de consola */
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.hud__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  transition: background-color 300ms var(--ease-out);
+}
+
+.hud__light--siga .hud__dot {
+  background: var(--go);
+}
+
+.hud__light--precaucion .hud__dot {
+  background: var(--amber);
+}
+
+.hud__light--alto .hud__dot {
+  background: var(--stop);
+}
+
+@media (max-width: 767px) {
+  .hud--top {
+    height: 60px;
+  }
+
+  .hud__mark {
+    font-size: 1rem;
+  }
+
+  .hud__readout:first-child {
+    display: none;
+  }
+
+  .hud__right {
+    gap: 12px;
+  }
+
+  .hud__links {
+    gap: 12px;
+  }
+}
+
+.hud__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+}
+
+/* Botones del HUD: idioma y modo ASCII. Cuadrados, como placas chicas. */
+.hud__toggle {
+  min-width: 44px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  background: var(--sign);
+  color: var(--sign-ink);
+  font: 600 var(--step-small) / 1 var(--font-text);
+  outline: 2px solid var(--sign-ink);
+  outline-offset: -5px;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+
+.hud__toggle:hover {
+  background: #2a63c4;
+}
+
+.hud__toggle:active {
+  transform: scale(0.94);
+}
+
+.hud__toggle:focus-visible {
+  outline: 3px solid var(--go);
+  outline-offset: 3px;
+}
+
+
+.hud--alto .hud__toggle {
+  background: #ffffff;
+  color: #c8102e;
+  outline-color: #c8102e;
+}

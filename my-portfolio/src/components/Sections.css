@@ -1,0 +1,456 @@
+/* Las secciones viven en la misma noche que la esquina, pero ya en calma: lo divertido es
+   el hero. Aquí manda el contenido; de la esquina quedan la paleta, la placa azul y un filete de neón. */
+
+.section-title {
+  font-size: var(--step-head);
+  margin-bottom: clamp(40px, 5vw, 72px);
+  scroll-margin-top: 96px;
+}
+
+/* ---------- Casos: espectaculares iluminados ---------- */
+.casos {
+  position: relative;
+  z-index: var(--z-content);
+  padding: clamp(120px, 14vw, 200px) var(--margin) 0;
+}
+
+.casos__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: clamp(140px, 15vw, 220px);
+}
+
+.caso {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  align-items: end;
+}
+
+.caso__media {
+  grid-column: 1 / span 8;
+}
+
+.caso__text {
+  grid-column: 9 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 8px;
+}
+
+.caso--flip .caso__media {
+  grid-column: 5 / -1;
+  grid-row: 1;
+}
+
+.caso--flip .caso__text {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  padding-left: 0;
+}
+
+.cartel {
+  margin: 0;
+}
+
+/* Marco discreto: un escalón de tono sobre la noche, sin luces ni brillo. */
+.cartel__frame {
+  position: relative;
+  padding: 8px;
+  border-radius: 16px;
+  background: #151925;
+  transition: background-color 300ms var(--ease-out);
+}
+
+.caso:hover .cartel__frame {
+  background: #1a1f2e;
+}
+
+.cartel__frame img,
+.cartel__frame .caso__pending {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 10px;
+  transition: transform 600ms var(--ease-out);
+}
+
+.cartel__frame {
+  overflow: hidden;
+}
+
+.caso:hover .cartel__frame img {
+  transform: scale(1.015);
+}
+
+/* La calle de cada caso, como placa de nomenclatura atornillada al marco. */
+.caso__street {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--sign);
+  color: var(--sign-ink);
+  font-size: var(--step-small);
+  font-weight: 500;
+  outline: 2px solid var(--sign-ink);
+  outline-offset: -5px;
+}
+
+.caso__title {
+  font-size: var(--step-head);
+}
+
+/* Toda la tarjeta es clicable: el enlace del título se estira sobre el caso. */
+.caso--link {
+  position: relative;
+}
+
+.caso__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.caso__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.caso__link:focus-visible {
+  outline: none;
+}
+
+.caso--link:has(.caso__link:focus-visible) .cartel__frame {
+  outline: 3px solid var(--go);
+  outline-offset: 4px;
+}
+
+.caso__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--go);
+  font-weight: 500;
+}
+
+.caso__cta svg {
+  transition: transform 220ms var(--ease-out);
+}
+
+.caso--link:hover .caso__cta svg {
+  transform: translateX(5px);
+}
+
+.caso__claim {
+  font-size: var(--step-lead);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.caso__facts {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.caso__facts li {
+  position: relative;
+  padding-left: 18px;
+}
+
+/* Viñeta: la luz verde del semáforo, chiquita. */
+.caso__facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--go);
+}
+
+.caso__role {
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+
+.caso__pending {
+  display: grid;
+  place-items: center;
+  background: var(--sign);
+}
+
+.caso__pending-sign {
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: var(--sign-ink);
+  font-size: var(--step-lead);
+  font-weight: 600;
+  outline: 4px solid var(--sign-ink);
+  outline-offset: -4px;
+}
+
+/* ---------- Sobre mí ---------- */
+.sobre {
+  position: relative;
+  z-index: var(--z-content);
+  padding: clamp(140px, 14vw, 200px) var(--margin) clamp(140px, 14vw, 220px);
+}
+
+/* La foto mide lo mismo que el texto que la acompaña. */
+.sobre__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  align-items: stretch;
+}
+
+.aparador {
+  position: relative;
+  grid-column: 1 / span 4;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px;
+  border-radius: 18px;
+  background: #151925;
+}
+
+/* Filete de neón rosa mexicano: delgado, sin chisporroteo. */
+.aparador__neon {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1.5px solid rgba(255, 92, 174, 0.75);
+  pointer-events: none;
+}
+
+.aparador__glass {
+  position: relative;
+  flex: 1;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #11141d;
+}
+
+/* La foto original tiene mucho fondo: se acerca para que tú seas la protagonista. */
+.sobre__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  transform-origin: 50% 60%;
+}
+
+.aparador__plate {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--sign);
+  color: var(--sign-ink);
+  font-size: var(--step-small);
+  outline: 2px solid var(--sign-ink);
+  outline-offset: -5px;
+  white-space: nowrap;
+}
+
+.aparador__plate span:first-child {
+  font-weight: 600;
+}
+
+.sobre__text {
+  grid-column: 6 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 60ch;
+}
+
+.sobre__lead {
+  font-size: var(--step-lead);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+/* Datos: lista sobria en dos columnas. */
+.sobre__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 24px;
+  margin: 24px 0 0;
+}
+
+.sobre__facts dt {
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+
+.sobre__facts dd {
+  margin: 6px 0 0;
+}
+
+/* ---------- Contacto ---------- */
+.contacto {
+  position: relative;
+  z-index: var(--z-content);
+  padding: clamp(96px, 10vw, 160px) var(--margin) 72px;
+  background: #c8102e;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.contacto__title {
+  font-size: var(--step-display);
+  margin-bottom: clamp(48px, 6vw, 96px);
+}
+
+.contacto__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.contacto__list a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.contacto__label {
+  font-size: var(--step-small);
+  opacity: 0.85;
+}
+
+.contacto__value {
+  font-size: var(--step-lead);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  position: relative;
+  align-self: flex-start;
+}
+
+.contacto__value::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out);
+}
+
+.contacto__list a:hover .contacto__value::after,
+.contacto__list a:focus-visible .contacto__value::after {
+  transform: scaleX(1);
+}
+
+.contacto :focus-visible {
+  outline-color: #ffffff;
+}
+
+.pie {
+  margin-top: clamp(96px, 12vw, 180px);
+}
+
+.pie__name {
+  font-size: clamp(3rem, 13.5vw, 13rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.85;
+  white-space: nowrap;
+}
+
+.pie__legal {
+  margin-top: 32px;
+  font-size: var(--step-small);
+  opacity: 0.85;
+  padding-bottom: 32px;
+}
+
+/* ---------- Tablet y teléfono ---------- */
+/* Debajo de 1024 px el caso se apila: el texto primero y luego su espectacular. */
+@media (max-width: 1023px) {
+  .caso {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .caso__media,
+  .caso--flip .caso__media {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .caso__text,
+  .caso--flip .caso__text {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-left: 0;
+    max-width: 60ch;
+  }
+}
+
+@media (max-width: 767px) {
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+  }
+
+  .aparador,
+  .sobre__text {
+    grid-column: 1 / -1;
+  }
+
+  .aparador {
+    width: 86%;
+  }
+
+  .aparador__glass {
+    flex: none;
+    aspect-ratio: 4 / 5;
+  }
+
+  .caso__street,
+  .aparador__plate {
+    left: 14px;
+    bottom: 14px;
+  }
+
+
+  .contacto__list,
+  .sobre__facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caso:hover .cartel__frame img {
+    transform: none;
+  }
+}

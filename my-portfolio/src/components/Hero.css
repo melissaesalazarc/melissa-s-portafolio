@@ -1,233 +1,197 @@
-.hero-container {
+/* El hero mide 280svh: el escenario queda fijo mientras el poste gira y la cámara baja. */
+.hero {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  background: #0b0014;
-  color: white;
+  height: 280svh;
+}
+
+.hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
   overflow: hidden;
-  padding: 0 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.hero-left {
-  z-index: 10;
-  max-width: 450px;
+/* El lienzo es el fondo fijo de toda la página: la esquina en el hero, la noche después. */
+.hero__canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-canvas);
 }
 
-.hero-left h1 {
-  font-size: 58px;
-  font-weight: 700;
-  line-height: 1.1;
+.hero__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-canvas);
 }
 
-.highlight {
-  color: #ffb4ff;
+.hero__canvas canvas {
+  touch-action: pan-y;
 }
 
-.subtext {
-  margin-top: 20px;
-  font-size: 20px;
-  opacity: 0.9;
+.hero__fallback {
+  display: grid;
+  place-items: center end;
+  padding-right: 12vw;
+  background: var(--bg);
 }
 
-.desc {
-  margin-top: 14px;
-  font-size: 17px;
-  opacity: 0.75;
+.hero__fallback-sign {
+  padding: 18px 28px;
+  border: 4px solid var(--sign-ink);
+  outline: 14px solid var(--sign);
+  background: var(--sign);
+  color: var(--sign-ink);
+  font-size: var(--step-lead);
+  font-weight: 600;
 }
 
-.hero-right {
-  position: relative;
-  z-index: 20;
-  margin-right: 5%;
+.hero__copy {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-content);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  align-items: end;
+  padding: 0 var(--margin) clamp(96px, 14svh, 140px);
+  pointer-events: none;
+  --exit: 0;
+}
+
+.hero__copy > * {
+  pointer-events: auto;
+}
+
+.hero__title {
+  grid-column: 1 / span 6;
+  font-size: var(--step-display);
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+
+/* ---------- Título cinético ---------- */
+.kin__line {
+  display: block;
+}
+
+.kin__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.kin__char {
+  --lift: 0;
+  display: inline-block;
+  transform: translate3d(0, calc(var(--exit) * (-36px - var(--i) * 3px) - var(--lift) * 0.14em), 0)
+    rotate(calc(var(--exit) * var(--r) * 1.4deg));
+  opacity: calc(1 - var(--exit) * 1.2);
+  transition: transform 260ms var(--ease-out);
+  will-change: transform;
+}
+
+.kin__in {
+  display: inline-block;
+  animation: kin-in 650ms var(--ease-out) both;
+  animation-delay: calc(var(--i) * 12ms + 80ms);
+  transform-origin: 50% 100%;
+}
+
+@keyframes kin-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.55em, 0) rotateX(-80deg) skewY(6deg);
+  }
+}
+
+.hero__aside {
+  grid-column: 1 / span 5;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 32px;
+  opacity: calc(1 - var(--exit) * 1.6);
+  transform: translate3d(0, calc(var(--exit) * -48px), 0);
 }
 
-.hero-photo {
-  width: 420px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 25px;
-  position: relative;
-  z-index: 10; /* sobre el blob */
+.hero__aside > * {
+  animation: hero-rise 700ms var(--ease-out) both;
+  animation-delay: 380ms;
 }
 
-.bubble-wrapper {
+.hero__aside > * + * {
+  animation-delay: 450ms;
+}
+
+.hero__lead {
+  max-width: 42ch;
+  font-size: var(--step-body);
+  color: var(--ink);
+}
+
+.hero__hint {
   position: absolute;
-  top: -40px;     /* SUBE el globito */
-  right: -40px;   /* ACERCA el globito a la foto */
-  z-index: 30;    /* Asegura que quede adelante del blob */
+  right: var(--margin);
+  bottom: clamp(96px, 14svh, 140px);
+  z-index: var(--z-content);
+  max-width: 24ch;
+  color: var(--muted);
+  font-size: var(--step-small);
+  text-align: right;
+  animation: hero-rise 900ms var(--ease-out) both;
+  animation-delay: calc(var(--hero-delay, 0ms) + 180ms);
 }
 
-/* TECH STACK */
-.tech-stack {
-  display: flex;
-  gap: 12px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-  max-width: 480px;
-}
-
-.tech-item {
-  padding: 6px 14px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  color: #ffffffee;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.15),
-    inset 0 0 20px rgba(255, 255, 255, 0.06);
-  transition: all 0.25s ease;
-  user-select: none;
-  cursor: default;
-}
-
-.tech-item:hover {
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.25),
-    inset 0 0 25px rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-}
-/* -------------------- RESPONSIVE -------------------- */
-
-/* Pantallas grandes / tablets grandes / móviles grandes */
-@media (max-width: 1280px) {
-  .hero-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 5%;
-    height: auto;
-  }
-
-  .hero-left {
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .hero-left h1 {
-    font-size: 50px;
-  }
-
-  .subtext {
-    font-size: 19px;
-  }
-
-  .desc {
-    font-size: 16px;
-  }
-
-  .tech-stack {
-    justify-content: center;
-    max-width: 100%;
-  }
-
-  .hero-right {
-    margin-right: 0;
-  }
-
-  .hero-photo {
-    width: 350px;
-    height: 350px;
-  }
-
-  .bubble-wrapper {
-    top: -25px;
-    right: -25px;
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
   }
 }
 
-/* Tablets / móviles medianos */
-@media (max-width: 1024px) {
-  .hero-left h1 {
-    font-size: 44px;
+@media (max-width: 1023px) {
+  .hero__title {
+    grid-column: 1 / span 10;
   }
 
-  .subtext {
-    font-size: 18px;
+  .hero__aside {
+    grid-column: 1 / span 7;
   }
 
-  .desc {
-    font-size: 15px;
-  }
-
-  .hero-photo {
-    width: 300px;
-    height: 300px;
-  }
-
-  .bubble-wrapper {
-    top: -20px;
-    right: -20px;
+  .hero__hint {
+    display: none;
   }
 }
 
-/* Móviles / pantallas pequeñas */
-@media (max-width: 768px) {
-  .hero-left h1 {
-    font-size: 38px;
+@media (max-width: 767px) {
+  .hero {
+    height: 240svh;
   }
 
-  .subtext {
-    font-size: 16px;
+  .hero__copy {
+    align-items: start;
+    padding-top: 92px;
+    padding-bottom: 0;
   }
 
-  .desc {
-    font-size: 14px;
+  .hero__title {
+    grid-column: 1 / -1;
+    font-size: clamp(2.5rem, 11vw, 3.25rem);
   }
 
-  .hero-photo {
-    width: 250px;
-    height: 250px;
+  .hero__aside {
+    grid-column: 1 / -1;
+    margin-top: 16px;
+    gap: 16px;
   }
 
-  .bubble-wrapper {
-    top: -15px;
-    right: -15px;
+  .hero__lead {
+    font-size: 1rem;
+    max-width: 34ch;
   }
 
-  .tech-item {
-    font-size: 0.75rem;
-    padding: 5px 10px;
-  }
-}
-
-/* Móviles pequeños / compactos */
-@media (max-width: 480px) {
-  .hero-left h1 {
-    font-size: 32px;
-  }
-
-  .subtext {
-    font-size: 15px;
-  }
-
-  .desc {
-    font-size: 13px;
-  }
-
-  .hero-photo {
-    width: 200px;
-    height: 200px;
-  }
-
-  .bubble-wrapper {
-    top: -10px;
-    right: -10px;
-  }
-
-  .tech-item {
-    font-size: 0.7rem;
-    padding: 4px 8px;
+  .hero__hint {
+    display: none;
   }
 }
