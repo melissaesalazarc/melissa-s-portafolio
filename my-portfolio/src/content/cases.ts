@@ -12,13 +12,11 @@ import pMobKanban from "../assets/casos/proyectos/after-light-mob-tablero-kanban
 import pMobDetail from "../assets/casos/proyectos/after-light-mob-detalle-tarea.webp";
 import pDarkKanban from "../assets/casos/proyectos/after-dark-desk-tablero-kanban.webp";
 import nHome from "../assets/casos/navegacion/after-desk-home-diciembre.webp";
-import nBeforeIcons from "../assets/casos/navegacion/before-desk-iconos-linea.webp";
 import nRail from "../assets/casos/navegacion/after-desk-rail.webp";
 import nDark from "../assets/casos/navegacion/after-dark-desk-home.webp";
 import nSearch from "../assets/casos/navegacion/after-desk-buscador.webp";
 import nSeasons from "../assets/casos/navegacion/temporadas-logo.webp";
-import nBeforeCrop from "../assets/casos/navegacion/before-shell-recorte.webp";
-import nAfterCrop from "../assets/casos/navegacion/after-shell-recorte.webp";
+import nBefore from "../assets/casos/navegacion/before-desk-original.webp";
 
 import lBefore from "../assets/casos/login/before-desk-login.webp";
 import lAfter from "../assets/casos/login/after-desk-login.webp";
@@ -446,7 +444,8 @@ const navegacion: Case = {
         },
         {
           kind: "image",
-          img: { src: nBeforeCrop, w: 726, h: 750 },
+          img: big(nBefore),
+          wide: true,
           caption: {
             en: "The starting point: a flat list, line icons that repeat, the same size for every level and “Collapse” in English.",
             es: "El punto de partida: una lista plana, íconos de línea que se repiten, el mismo tamaño para todos los niveles y «Collapse» en inglés.",
@@ -514,15 +513,6 @@ const navegacion: Case = {
           },
         },
         {
-          kind: "compare",
-          before: big(nBeforeIcons),
-          after: big(nHome),
-          caption: {
-            en: "Same screen, before and after the icon set: the line icons blur together; the new ones tell areas apart at a glance.",
-            es: "La misma pantalla, antes y después del set de íconos: los de línea se confunden entre sí; los nuevos distinguen cada área de un vistazo.",
-          },
-        },
-        {
           kind: "decision",
           title: { en: "Hierarchy by weight, not size", es: "Jerarquía por peso, no por tamaño" },
           body: {
@@ -579,8 +569,8 @@ const navegacion: Case = {
           src: "/demos/navegacion/index.html",
           poster: big(nHome),
           caption: {
-            en: "The real frame, live, with fictitious data. Use the bar on top to switch months, light and dark, or collapse the menu; search a module or open any group.",
-            es: "El marco real, en vivo, con datos ficticios. Con la barra de arriba cambia de mes, de claro a oscuro o contrae el menú; busca un módulo o abre cualquier grupo.",
+            en: "The real frame, live, with fictitious data. Pick a month in the bar on top, search a module, open any group, switch to dark with the moon in the header or collapse the menu with “Contraer menú”.",
+            es: "El marco real, en vivo, con datos ficticios. Elige un mes en la barra de arriba, busca un módulo, abre cualquier grupo, pasa a oscuro con la luna del encabezado o contrae el menú con «Contraer menú».",
           },
         },
         {
@@ -623,12 +613,12 @@ const navegacion: Case = {
       ],
     },
     {
-      kind: "pair",
-      a: { src: nBeforeCrop, w: 726, h: 750 },
-      b: { src: nAfterCrop, w: 1452, h: 1500 },
+      kind: "compare",
+      before: big(nBefore),
+      after: big(nHome),
       caption: {
-        en: "Before and after, same frame size. Fictitious data.",
-        es: "Antes y después, al mismo tamaño de marco. Datos ficticios.",
+        en: "The original frame before I touched it, and the final one. Drag to compare. Fictitious data.",
+        es: "El marco original antes de tocarlo y el final. Desliza para comparar. Datos ficticios.",
       },
     },
   ],
