@@ -62,6 +62,7 @@ export type Block =
   | { kind: "quote"; body: L }
   | { kind: "decision"; title: L; body: L }
   | { kind: "demo"; before: string; after: string; poster: Img; caption: L }
+  | { kind: "live"; src: string; poster: Img; caption: L }
   | { kind: "video"; mp4: string; webm: string; poster: Img; caption: L }
   | { kind: "table"; head: [L, L, L]; rows: [L, L, L][] };
 
@@ -110,6 +111,7 @@ export const UI = {
   play: { en: "Play video", es: "Reproducir video" },
   demoBefore: { en: "Live demo, before", es: "Demo en vivo, antes" },
   demoAfter: { en: "Live demo, after", es: "Demo en vivo, después" },
+  demoLive: { en: "Live demo", es: "Demo en vivo" },
   process: {
     en: "Each case follows the Double Diamond: find out what's going on, define the problem, develop the solution, deliver it.",
     es: "Cada caso sigue el Double Diamond: descubrir qué pasa de verdad, definir el problema, desarrollar la solución y entregarla.",
@@ -570,6 +572,15 @@ const navegacion: Case = {
           caption: {
             en: "Nine of the thirteen themes: Three Kings, Valentine's, Easter, summer, Independence Day, Halloween, Day of the Dead, Christmas and birthdays.",
             es: "Nueve de los trece temas: Reyes, San Valentín, Pascua, verano, Fiestas Patrias, Halloween, Día de Muertos, Navidad y cumpleaños.",
+          },
+        },
+        {
+          kind: "live",
+          src: "/demos/navegacion/index.html",
+          poster: big(nHome),
+          caption: {
+            en: "The real frame, live, with fictitious data. Use the bar on top to switch months, light and dark, or collapse the menu; search a module or open any group.",
+            es: "El marco real, en vivo, con datos ficticios. Con la barra de arriba cambia de mes, de claro a oscuro o contrae el menú; busca un módulo o abre cualquier grupo.",
           },
         },
         {

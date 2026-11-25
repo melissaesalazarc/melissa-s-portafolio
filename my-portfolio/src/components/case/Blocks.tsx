@@ -111,6 +111,36 @@ function Demo({ before, after, poster, caption }: { before: string; after: strin
   );
 }
 
+/* Demo interactiva de una sola pieza: se carga al tocarla y se dibuja a 1440 × 810, escalada al contenedor. */
+function Live({ src, poster, caption }: { src: string; poster: Img; caption: string }) {
+  const lang = useLang();
+  const [on, setOn] = useState(false);
+  const stage = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const el = stage.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([e]) => setScale(e.contentRect.width / 1440));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <motion.figure className="cs-demo" {...reveal}>
+      <div ref={stage} className="cs-demo__stage" style={{ "--demo-scale": scale } as React.CSSProperties}>
+        {on ? (
+          <iframe src={src} title={UI.demoLive[lang]} loading="lazy" />
+        ) : (
+          <button type="button" className="cs-demo__poster" onClick={() => setOn(true)}>
+            <Picture img={poster} alt="" />
+            <span className="btn">{UI.playDemo[lang]}</span>
+          </button>
+        )}
+      </div>
+      <figcaption>{caption}</figcaption>
+    </motion.figure>
+  );
+}
+
 /* Video del movimiento real: arranca solo (sin sonido) cuando entra en pantalla, se puede pausar
    (WCAG 2.2.2) y con «reducir movimiento» espera a que la persona le dé play. */
 function Video({ mp4, webm, poster, caption }: { mp4: string; webm: string; poster: Img; caption: string }) {
@@ -233,6 +263,8 @@ export function BlockView({ block }: { block: Block }) {
       );
     case "video":
       return <Video mp4={block.mp4} webm={block.webm} poster={block.poster} caption={block.caption[lang]} />;
+    case "live":
+      return <Live src={block.src} poster={block.poster} caption={block.caption[lang]} />;
     case "demo":
       return <Demo before={block.before} after={block.after} poster={block.poster} caption={block.caption[lang]} />;
     case "table":
