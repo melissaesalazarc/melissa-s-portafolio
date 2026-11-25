@@ -311,8 +311,16 @@ const proyectos: Case = {
           img: { src: pShell, w: 1925, h: 791 },
           wide: true,
           caption: {
-            en: "The new PEXSS frame: module search, grouped navigation with one icon per area, a single active state and a light header. Fictitious data.",
-            es: "El nuevo marco de PEXSS: buscador de módulos, navegación agrupada con un ícono por área, un solo estado activo y un encabezado ligero. Datos ficticios.",
+            en: "The new PEXSS frame, in its December theme: module search, grouped navigation with one icon per area, a single active state and a light header. Fictitious data.",
+            es: "El nuevo marco de PEXSS, con su tema de diciembre: buscador de módulos, navegación agrupada con un ícono por área, un solo estado activo y un encabezado ligero. Datos ficticios.",
+          },
+        },
+        {
+          kind: "decision",
+          title: { en: "A frame that changes with the month", es: "Un marco que cambia con el mes" },
+          body: {
+            en: "People open PEXSS every working day, so the frame shouldn't feel the same in March as in December. Each month the ERP takes on a theme: in December, string lights hang over the logo and it wears a Santa hat. The rule that makes it work is where the theme is allowed to live: only in the brand corner and the header band. The work area, the navigation and the data never change, so the seasonal layer adds personality without costing anyone a second of reading time, and switching months never touches a single screen.",
+            es: "La gente abre PEXSS todos los días hábiles, así que el marco no debería sentirse igual en marzo que en diciembre. Cada mes el ERP se viste con un tema: en diciembre, una guirnalda de luces cuelga sobre el logo y este se pone gorro navideño. La regla que lo hace funcionar es dónde puede vivir el tema: solo en la esquina de marca y en la franja del encabezado. El área de trabajo, la navegación y los datos nunca cambian; así la capa de temporada le da personalidad al sistema sin costarle a nadie un segundo de lectura, y cambiar de mes no toca ninguna pantalla.",
           },
         },
         {
