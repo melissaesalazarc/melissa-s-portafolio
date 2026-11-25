@@ -143,6 +143,14 @@ export const COPY: Record<Lang, Copy> = {
           alt: "Redesigned Kanban board of the projects module, with stage columns and cards showing priority, progress and owners.",
         },
         {
+          street: "PEXSS · Navigation",
+          title: "Navigation",
+          claim: "The frame around every screen of the ERP, with personality that stays in its corner.",
+          facts: ["~300 views share it", "15 audit findings", "13 seasonal themes"],
+          role: "Audit, UI/UX and front end · 2026",
+          alt: "PEXSS home with the redesigned sidebar: module search, one icon per area, the current page as a green pill and the logo dressed for December.",
+        },
+        {
           street: "PEXSS · Access",
           title: "Sign in",
           claim: "The front door the whole company walks through, every day.",
@@ -239,6 +247,14 @@ export const COPY: Record<Lang, Copy> = {
           facts: ["23 tamaños de letra → 7 roles", "Contraste AA medido", "Claro, oscuro y celular"],
           role: "Diseño UI/UX y frontend · 2026",
           alt: "Tablero Kanban rediseñado del módulo de proyectos, con columnas por etapa y tarjetas con prioridad, avance y responsables.",
+        },
+        {
+          street: "PEXSS · Navegación",
+          title: "Navegación",
+          claim: "El marco de todas las pantallas del ERP, con una personalidad que se queda en su esquina.",
+          facts: ["~300 vistas lo comparten", "15 hallazgos de auditoría", "13 temas de temporada"],
+          role: "Auditoría, UI/UX y frontend · 2026",
+          alt: "Inicio de PEXSS con la barra lateral rediseñada: buscador de módulos, un ícono por área, la página actual como píldora verde y el logo vestido de diciembre.",
         },
         {
           street: "PEXSS · Acceso",

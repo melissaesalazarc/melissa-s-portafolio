@@ -11,7 +11,14 @@ import pAfterIndex from "../assets/casos/proyectos/after-light-desk-indice.webp"
 import pMobKanban from "../assets/casos/proyectos/after-light-mob-tablero-kanban.webp";
 import pMobDetail from "../assets/casos/proyectos/after-light-mob-detalle-tarea.webp";
 import pDarkKanban from "../assets/casos/proyectos/after-dark-desk-tablero-kanban.webp";
-import pShell from "../assets/casos/proyectos/after-light-desk-shell-erp.webp";
+import nHome from "../assets/casos/navegacion/after-desk-home-diciembre.webp";
+import nBeforeIcons from "../assets/casos/navegacion/before-desk-iconos-linea.webp";
+import nRail from "../assets/casos/navegacion/after-desk-rail.webp";
+import nDark from "../assets/casos/navegacion/after-dark-desk-home.webp";
+import nSearch from "../assets/casos/navegacion/after-desk-buscador.webp";
+import nSeasons from "../assets/casos/navegacion/temporadas-logo.webp";
+import nBeforeCrop from "../assets/casos/navegacion/before-shell-recorte.webp";
+import nAfterCrop from "../assets/casos/navegacion/after-shell-recorte.webp";
 
 import lBefore from "../assets/casos/login/before-desk-login.webp";
 import lAfter from "../assets/casos/login/after-desk-login.webp";
@@ -76,6 +83,7 @@ export type Case = {
 
 const desk = (src: string): Img => ({ src, w: 1440, h: 900 });
 const phone = (src: string): Img => ({ src, w: 780, h: 1688 });
+const big = (src: string): Img => ({ src, w: 2880, h: 1620 });
 
 export const PHASES: Record<Phase["id"], L> = {
   discover: { en: "Discover", es: "Descubrir" },
@@ -114,8 +122,8 @@ const proyectos: Case = {
   slug: "projects-tasks",
   title: { en: "Projects & tasks", es: "Proyectos y tareas" },
   summary: {
-    en: "I turned a project-management module built in pieces into one system, while the dev team kept shipping new features on top of it. Then I took that system to the frame of the whole ERP.",
-    es: "Convertí un módulo de gestión de proyectos hecho por partes en un solo sistema, mientras el equipo de desarrollo seguía agregándole funciones. Después llevé ese sistema al marco de todo el ERP.",
+    en: "I turned a project-management module built in pieces into one system, while the dev team kept shipping new features on top of it.",
+    es: "Convertí un módulo de gestión de proyectos hecho por partes en un solo sistema, mientras el equipo de desarrollo seguía agregándole funciones.",
   },
   meta: [
     { label: { en: "Product", es: "Producto" }, value: { en: "PEXSS, Plato Express's internal ERP", es: "PEXSS, el ERP interno de Plato Express" } },
@@ -300,27 +308,10 @@ const proyectos: Case = {
         },
         {
           kind: "decision",
-          title: { en: "From one module to the whole ERP", es: "De un módulo a todo el ERP" },
+          title: { en: "Next: the frame around every module", es: "Lo que siguió: el marco de todos los módulos" },
           body: {
-            en: "Once the module's system held up, I took it to the frame every PEXSS screen lives in: the sidebar and the header. The sidebar gained a module search, a single illustrated icon per area and groups that open in place, so people stop scrolling through a long list. The active page is one solid green pill, the only filled shape in the menu, and the whole menu collapses to give tables more room. The header keeps just the breadcrumb, a few icon actions and who's signed in. I shipped it first as a theme over the entire ERP and then as one that rolls out module by module, so each team gets it without breaking what they're building.",
-            es: "Cuando el sistema del módulo ya se sostenía solo, lo llevé al marco donde vive cada pantalla de PEXSS: la barra lateral y el encabezado. La barra ganó un buscador de módulos, un ícono ilustrado por área y grupos que se despliegan en su lugar, para que nadie tenga que recorrer una lista larga. La página activa es una sola píldora verde, la única forma rellena del menú, y el menú completo se contrae para darle espacio a las tablas. El encabezado se queda solo con la ruta, unas cuantas acciones en ícono y quién tiene la sesión abierta. Primero lo probé como tema sobre todo el ERP y después como uno que se despliega por módulos, para que cada equipo lo reciba sin romper lo que está construyendo.",
-          },
-        },
-        {
-          kind: "image",
-          img: { src: pShell, w: 1925, h: 791 },
-          wide: true,
-          caption: {
-            en: "The new PEXSS frame, in its December theme: module search, grouped navigation with one icon per area, a single active state and a light header. Fictitious data.",
-            es: "El nuevo marco de PEXSS, con su tema de diciembre: buscador de módulos, navegación agrupada con un ícono por área, un solo estado activo y un encabezado ligero. Datos ficticios.",
-          },
-        },
-        {
-          kind: "decision",
-          title: { en: "A frame that changes with the month", es: "Un marco que cambia con el mes" },
-          body: {
-            en: "People open PEXSS every working day, so the frame shouldn't feel the same in March as in December. Each month the ERP takes on a theme: in December, string lights hang over the logo and it wears a Santa hat. The rule that makes it work is where the theme is allowed to live: only in the brand corner and the header band. The work area, the navigation and the data never change, so the seasonal layer adds personality without costing anyone a second of reading time, and switching months never touches a single screen.",
-            es: "La gente abre PEXSS todos los días hábiles, así que el marco no debería sentirse igual en marzo que en diciembre. Cada mes el ERP se viste con un tema: en diciembre, una guirnalda de luces cuelga sobre el logo y este se pone gorro navideño. La regla que lo hace funcionar es dónde puede vivir el tema: solo en la esquina de marca y en la franja del encabezado. El área de trabajo, la navegación y los datos nunca cambian; así la capa de temporada le da personalidad al sistema sin costarle a nadie un segundo de lectura, y cambiar de mes no toca ninguna pantalla.",
+            en: "After this module I took on the frame every screen shares: the ERP's sidebar and header. That's its own case, Navigation.",
+            es: "Después de este módulo tomé el marco que comparten todas las pantallas: la barra lateral y el encabezado del ERP. Es su propio caso, Navegación.",
           },
         },
         {
@@ -345,7 +336,6 @@ const proyectos: Case = {
         [{ en: "Chart color", es: "Color en gráficas" }, { en: "By position", es: "Por posición" }, { en: "Fixed per priority and column", es: "Fijo por prioridad y columna" }],
         [{ en: "Contrast", es: "Contraste" }, { en: "Red 3.75:1, amber 2.15:1", es: "Rojo 3.75:1, ámbar 2.15:1" }, { en: "4.71:1 and 5.02:1, no new colors", es: "4.71:1 y 5.02:1, sin colores nuevos" }],
         [{ en: "Modals", es: "Modales" }, { en: "Each with its own design", es: "Cada uno con su diseño" }, { en: "One canon, 31 Cancel buttons aligned", es: "Un canon; 31 botones «Cancelar» alineados" }],
-        [{ en: "Reach", es: "Alcance" }, { en: "One module", es: "Un módulo" }, { en: "Sidebar and header for the whole ERP", es: "Barra lateral y encabezado de todo el ERP" }],
       ],
     },
     {
@@ -389,6 +379,275 @@ const proyectos: Case = {
     { en: "Usability tests on real tasks, before and after: “find what's due this week”, “create a task with two owners”.", es: "Pruebas con usuarios en tareas reales, antes y después: «encuentra lo que se vence esta semana», «crea una tarea con dos responsables»." },
     { en: "Dark mode for the public shared board.", es: "Modo oscuro para el tablero compartido público." },
     { en: "A status palette for boards with more than eight columns.", es: "Una paleta de estados para tableros con más de ocho columnas." },
+  ],
+};
+
+/* ---------------------------------------------------------------- Navegación */
+
+const navegacion: Case = {
+  slug: "navigation",
+  title: { en: "Navigation", es: "Navegación" },
+  summary: {
+    en: "I redesigned the frame every PEXSS screen lives in, the sidebar and the header shared by about 300 views, so people always know where they are, reach any module fast and feel the ERP is theirs.",
+    es: "Rediseñé el marco donde vive cada pantalla de PEXSS, la barra lateral y el encabezado que comparten unas 300 vistas, para que la gente siempre sepa dónde está, llegue rápido a cualquier módulo y sienta el ERP como suyo.",
+  },
+  meta: [
+    { label: { en: "Product", es: "Producto" }, value: { en: "PEXSS, Plato Express's internal ERP", es: "PEXSS, el ERP interno de Plato Express" } },
+    { label: { en: "My role", es: "Mi rol" }, value: { en: "Audit, UI/UX design and front end", es: "Auditoría, diseño UI/UX y frontend" } },
+    { label: { en: "Timeline", es: "Periodo" }, value: { en: "October – November 2026", es: "Octubre – noviembre 2026" } },
+    { label: { en: "Stack", es: "Stack" }, value: { en: "Laravel Blade, Livewire, Alpine.js, Tailwind, DaisyUI", es: "Laravel Blade, Livewire, Alpine.js, Tailwind, DaisyUI" } },
+  ],
+  cover: big(nHome),
+  impact: [
+    { value: "~300", label: { en: "views that inherit the new frame", es: "vistas que heredan el nuevo marco" } },
+    { value: "15", label: { en: "audit findings, measured and prioritized", es: "hallazgos de auditoría, medidos y priorizados" } },
+    { value: "4", label: { en: "icon directions tested before the final set", es: "direcciones de íconos probadas antes del set final" } },
+    { value: "13", label: { en: "seasonal themes: 12 months and birthdays", es: "temas de temporada: 12 meses y cumpleaños" } },
+  ],
+  context: [
+    {
+      en: "Every screen in PEXSS sits inside the same frame: a sidebar with every module the person has access to, and a header with their tools and profile. It's the most-seen piece of the whole ERP, and it had grown one module at a time.",
+      es: "Cada pantalla de PEXSS vive dentro del mismo marco: una barra lateral con todos los módulos a los que la persona tiene acceso y un encabezado con sus herramientas y su perfil. Es la pieza más vista de todo el ERP, y había crecido un módulo a la vez.",
+    },
+    {
+      en: "The team's request was clear: it felt flat and needed more personality. Before adding personality, I wanted to know what was actually getting in people's way.",
+      es: "La petición del equipo era clara: se veía plano y le faltaba personalidad. Antes de agregarle personalidad, quise saber qué le estorbaba de verdad a la gente.",
+    },
+  ],
+  phases: [
+    {
+      id: "discover",
+      title: { en: "Auditing the frame", es: "Auditar el marco" },
+      lead: {
+        en: "I audited the sidebar and header in the code, in the local database and in the browser at four widths, in light and dark. Nothing was changed until the audit was done.",
+        es: "Audité la barra lateral y el encabezado en el código, en la base de datos local y en el navegador a cuatro anchos, en claro y oscuro. No se tocó nada hasta terminar la auditoría.",
+      },
+      blocks: [
+        {
+          kind: "list",
+          items: [
+            { en: "Lost in a flat list. 24 modules sat at the top level with no grouping; Settings alone had 18 children. “Dashboard” appeared 10 times.", es: "Perdidos en una lista plana. 24 módulos en el primer nivel sin agrupar; solo Configuración tenía 18 hijos. «Dashboard» aparecía 10 veces." },
+            { en: "No sense of place. On desktop the header didn't say where you were; the breadcrumb lived in a separate band and its parent link pointed nowhere.", es: "Sin sentido de ubicación. En escritorio el encabezado no decía dónde estabas; el breadcrumb vivía en una banda aparte y su enlace padre no llevaba a ningún lado." },
+            { en: "Invisible to the keyboard. Focus didn't show at all in the sidebar, the only critical issue (WCAG 2.4.7). Hover contrast was 1.12:1.", es: "Invisible para el teclado. El foco no se veía en la barra lateral, el único problema crítico (WCAG 2.4.7). El hover tenía un contraste de 1.12:1." },
+            { en: "A collapsed menu with no clues. At 62 px there were no tooltips and the current page wasn't marked. The “Collapse” control was in English and was a link with no destination.", es: "Un menú contraído sin pistas. A 62 px no había tooltips ni se marcaba la página actual. El control «Collapse» estaba en inglés y era un enlace sin destino." },
+            { en: "Icons that didn't identify. Six icons were repeated across modules (the same shield for Quality, Security and Access), and every item was 10.6 px, module or submodule.", es: "Íconos que no identificaban. Seis íconos se repetían entre módulos (el mismo escudo para Calidad, Seguridad y Acceso) y todo medía 10.6 px, fuera módulo o submódulo." },
+          ],
+        },
+        {
+          kind: "text",
+          body: [
+            {
+              en: "The audit also listed what worked and had to stay: permissions enforced on the server, a module search that ignores accents and opens matching groups, the current group opening by itself, and a mobile drawer. The menu isn't written in code; it's built from a database table on every request, so any change had to respect that.",
+              es: "La auditoría también listó lo que funcionaba y debía quedarse: permisos aplicados en el servidor, un buscador de módulos que ignora acentos y abre los grupos que coinciden, el grupo actual que se abre solo y un drawer en celular. El menú no está escrito en código: se arma desde una tabla de la base de datos en cada petición, así que cualquier cambio tenía que respetar eso.",
+            },
+          ],
+        },
+        {
+          kind: "image",
+          img: { src: nBeforeCrop, w: 726, h: 750 },
+          caption: {
+            en: "The starting point: a flat list, line icons that repeat, the same size for every level and “Collapse” in English.",
+            es: "El punto de partida: una lista plana, íconos de línea que se repiten, el mismo tamaño para todos los niveles y «Collapse» en inglés.",
+          },
+        },
+      ],
+    },
+    {
+      id: "define",
+      title: { en: "Personality, but not at any cost", es: "Personalidad, pero no a cualquier costo" },
+      lead: {
+        en: "The team asked for personality; the audit asked for orientation and accessibility. The brief had to hold both.",
+        es: "El equipo pedía personalidad; la auditoría pedía orientación y accesibilidad. El brief tenía que sostener las dos cosas.",
+      },
+      blocks: [
+        {
+          kind: "quote",
+          body: {
+            en: "How do we make the sidebar feel more alive, better designed, usable and intuitive, while it still looks like part of the system?",
+            es: "¿Cómo hacemos que la barra lateral se sienta más viva, mejor diseñada, usable e intuitiva, y que siga viéndose parte del sistema?",
+          },
+        },
+        {
+          kind: "list",
+          items: [
+            { en: "You always know where you are: in the header, in the menu and with the menu collapsed.", es: "Siempre sabes dónde estás: en el encabezado, en el menú y con el menú contraído." },
+            { en: "Any module in seconds: by search or by scanning, with one recognizable icon per area.", es: "Cualquier módulo en segundos: con el buscador o de un vistazo, con un ícono reconocible por área." },
+            { en: "Accessible by default: visible focus, native controls and labels on every icon button.", es: "Accesible de entrada: foco visible, controles nativos y etiquetas en cada botón de ícono." },
+            { en: "Personality with a fence: it can live where it doesn't cost anyone reading time.", es: "Personalidad con cerca: puede vivir donde no le cueste a nadie tiempo de lectura." },
+          ],
+        },
+      ],
+    },
+    {
+      id: "develop",
+      title: { en: "Designing the frame", es: "Diseñar el marco" },
+      lead: {
+        en: "I worked in phases, each one audited, built and checked in light, dark and at 390 px before the next. These are the decisions that shaped it.",
+        es: "Trabajé por fases, cada una auditada, construida y revisada en claro, oscuro y a 390 px antes de pasar a la siguiente. Estas son las decisiones que le dieron forma.",
+      },
+      blocks: [
+        {
+          kind: "decision",
+          title: { en: "Orientation before decoration", es: "Orientación antes que decoración" },
+          body: {
+            en: "The breadcrumb moved into the header, so the top of every screen says where you are. Collapsed, the menu keeps the current module marked and shows a tooltip on every icon. “Collapse” became a native “Contraer menú” button you can reach with the keyboard, and focus is now always visible.",
+            es: "El breadcrumb se mudó al encabezado, así que la parte de arriba de cada pantalla dice dónde estás. Contraído, el menú mantiene marcado el módulo actual y muestra un tooltip en cada ícono. «Collapse» se volvió un botón nativo, «Contraer menú», que se alcanza con el teclado, y el foco ahora siempre se ve.",
+          },
+        },
+        {
+          kind: "image",
+          img: big(nRail),
+          wide: true,
+          caption: {
+            en: "Collapsed: one icon per area and the current module still marked, so the table gets the room without losing your place. Fictitious data.",
+            es: "Contraído: un ícono por área y el módulo actual sigue marcado, para que la tabla gane espacio sin que pierdas tu lugar. Datos ficticios.",
+          },
+        },
+        {
+          kind: "decision",
+          title: { en: "Four rounds of icons", es: "Cuatro rondas de íconos" },
+          body: {
+            en: "Line icons, soft 3D, flat and finally a custom “executive” set. I pushed back on the most detailed options: at 20 px, that much detail turns into smudges. The final set puts icons only on parent modules, one per area and none repeated, and was rolled out module by module in batches.",
+            es: "Íconos de línea, 3D suave, flat y al final un set propio «ejecutivo». Me opuse a las opciones con más detalle: a 20 px, tanto detalle se vuelve manchas. El set final pone íconos solo en los módulos padre, uno por área y sin repetir, y se desplegó módulo por módulo, en tandas.",
+          },
+        },
+        {
+          kind: "compare",
+          before: big(nBeforeIcons),
+          after: big(nHome),
+          caption: {
+            en: "Same screen, before and after the icon set: the line icons blur together; the new ones tell areas apart at a glance.",
+            es: "La misma pantalla, antes y después del set de íconos: los de línea se confunden entre sí; los nuevos distinguen cada área de un vistazo.",
+          },
+        },
+        {
+          kind: "decision",
+          title: { en: "Hierarchy by weight, not size", es: "Jerarquía por peso, no por tamaño" },
+          body: {
+            en: "Every level used to look the same. Parents now sit at 600, children at 500 and grandchildren a hair smaller at 400, without changing heights or cutting labels. Green is reserved for where you are: the current page is the only filled shape in the menu, a green pill with white text.",
+            es: "Antes todos los niveles se veían iguales. Ahora los padres van en 600, los hijos en 500 y los nietos un pelo más chicos en 400, sin cambiar alturas ni cortar etiquetas. El verde queda reservado para dónde estás: la página actual es la única forma rellena del menú, una píldora verde con texto blanco.",
+          },
+        },
+        {
+          kind: "decision",
+          title: { en: "Search that forgives", es: "Un buscador que perdona" },
+          body: {
+            en: "The existing search was one of the things that worked, so it stayed at the top of the menu. It ignores accents and opens the groups that match, so typing “fact” brings up Billing without knowing where it lives.",
+            es: "El buscador que ya existía era de lo que funcionaba, así que se quedó arriba del menú. Ignora acentos y abre los grupos que coinciden: escribir «fact» te muestra Facturación sin saber dónde vive.",
+          },
+        },
+        {
+          kind: "image",
+          img: big(nSearch),
+          wide: true,
+          caption: {
+            en: "Typing “fact” filters the whole menu and opens only the matching groups.",
+            es: "Escribir «fact» filtra todo el menú y abre solo los grupos que coinciden.",
+          },
+        },
+      ],
+    },
+    {
+      id: "deliver",
+      title: { en: "Personality with a fence", es: "Personalidad con cerca" },
+      lead: {
+        en: "With orientation solved, the personality could come in. The question was where it was allowed to live.",
+        es: "Con la orientación resuelta, ya podía entrar la personalidad. La pregunta era dónde se le permitía vivir.",
+      },
+      blocks: [
+        {
+          kind: "decision",
+          title: { en: "A theme for every month, in one corner", es: "Un tema por mes, en una sola esquina" },
+          body: {
+            en: "PEXSS now changes with the calendar: twelve monthly themes plus one for birthdays. I tried them in the logo area, then in a hybrid version across the header that a teammate suggested. The final rule was stricter: the season lives only around the logo, with no ribbons or backgrounds in the header, so the work area never changes. A small button hides the decoration and the choice is remembered.",
+            es: "PEXSS ahora cambia con el calendario: doce temas mensuales y uno para cumpleaños. Los probé en la zona del logo y después en una versión híbrida a lo largo del encabezado que sugirió un compañero. La regla final fue más estricta: la temporada vive solo alrededor del logo, sin cintas ni fondos en el encabezado, así que el área de trabajo nunca cambia. Un botón pequeño oculta la decoración y la elección se recuerda.",
+          },
+        },
+        {
+          kind: "image",
+          img: { src: nSeasons, w: 1580, h: 656 },
+          wide: true,
+          caption: {
+            en: "Nine of the thirteen themes: Three Kings, Valentine's, Easter, summer, Independence Day, Halloween, Day of the Dead, Christmas and birthdays.",
+            es: "Nueve de los trece temas: Reyes, San Valentín, Pascua, verano, Fiestas Patrias, Halloween, Día de Muertos, Navidad y cumpleaños.",
+          },
+        },
+        {
+          kind: "text",
+          body: [
+            {
+              en: "I designed and built it myself in Blade, Livewire, Alpine.js and CSS, with an AI-assisted workflow in Claude Code. Each phase started from a written brief with fixed limits (no backend or vendor changes, dark mode preserved), went through audit, build and QA in light, dark and 390 px, and only then got a commit I approved.",
+              es: "Lo diseñé y construí yo misma en Blade, Livewire, Alpine.js y CSS, con un flujo asistido por IA en Claude Code. Cada fase arrancaba de un brief escrito con límites fijos (sin tocar backend ni vendor, conservando el modo oscuro), pasaba por auditoría, construcción y QA en claro, oscuro y 390 px, y solo entonces llevaba un commit aprobado por mí.",
+            },
+            {
+              en: "Feedback changed the work more than once. The header first grouped its utilities in a single hub; the team wanted their tools one click away, so they came back out, and employee search stayed fixed because people use it all day. The menu order moved to alphabetical with Home first, done as a database migration because that's where the menu lives.",
+              es: "El feedback cambió el trabajo más de una vez. Al principio el encabezado agrupaba sus utilidades en un solo centro; el equipo quería sus herramientas a un clic, así que volvieron a salir, y la búsqueda de empleados se quedó fija porque la gente la usa todo el día. El orden del menú pasó a alfabético con Home primero, como una migración de base de datos, porque ahí vive el menú.",
+            },
+          ],
+        },
+        {
+          kind: "image",
+          img: big(nDark),
+          wide: true,
+          caption: {
+            en: "Dark mode: the same frame, the same single green state.",
+            es: "Modo oscuro: el mismo marco y el mismo estado verde único.",
+          },
+        },
+      ],
+    },
+  ],
+  outcome: [
+    {
+      kind: "table",
+      head: [{ en: "", es: "" }, { en: "Before", es: "Antes" }, { en: "After", es: "Después" }],
+      rows: [
+        [{ en: "Where am I", es: "Dónde estoy" }, { en: "Breadcrumb in a separate band, dead parent link", es: "Breadcrumb en una banda aparte, padre sin destino" }, { en: "Breadcrumb inside the header", es: "Breadcrumb dentro del encabezado" }],
+        [{ en: "Keyboard focus", es: "Foco de teclado" }, { en: "Invisible", es: "Invisible" }, { en: "Always visible", es: "Siempre visible" }],
+        [{ en: "Collapsed menu", es: "Menú contraído" }, { en: "No tooltips, current page hidden", es: "Sin tooltips, página actual oculta" }, { en: "Tooltips and current module marked", es: "Tooltips y módulo actual marcado" }],
+        [{ en: "Collapse control", es: "Control para contraer" }, { en: "“Collapse”, a link with no destination", es: "«Collapse», un enlace sin destino" }, { en: "Native “Contraer menú” button", es: "Botón nativo «Contraer menú»" }],
+        [{ en: "Icons", es: "Íconos" }, { en: "Line icons, 6 repeated", es: "De línea, 6 repetidos" }, { en: "Custom set, one per area", es: "Set propio, uno por área" }],
+        [{ en: "Hierarchy", es: "Jerarquía" }, { en: "Same size and weight on every level", es: "Mismo tamaño y peso en todos los niveles" }, { en: "Weights 600 / 500 / 400, green only for the current page", es: "Pesos 600 / 500 / 400, verde solo para la página actual" }],
+        [{ en: "Personality", es: "Personalidad" }, { en: "None", es: "Ninguna" }, { en: "13 seasonal themes, only around the logo", es: "13 temas de temporada, solo alrededor del logo" }],
+      ],
+    },
+    {
+      kind: "pair",
+      a: { src: nBeforeCrop, w: 726, h: 750 },
+      b: { src: nAfterCrop, w: 1452, h: 1500 },
+      caption: {
+        en: "Before and after, same frame size. Fictitious data.",
+        es: "Antes y después, al mismo tamaño de marco. Datos ficticios.",
+      },
+    },
+  ],
+  learned: [
+    {
+      title: { en: "Audit the frame before decorating it", es: "Auditar el marco antes de decorarlo" },
+      body: {
+        en: "The request was “more personality”. The audit showed the urgent problems were invisible: a focus you couldn't see and a header that didn't say where you were.",
+        es: "La petición era «más personalidad». La auditoría mostró que lo urgente era invisible: un foco que no se veía y un encabezado que no decía dónde estabas.",
+      },
+    },
+    {
+      title: { en: "Detail doesn't scale down", es: "El detalle no se encoge" },
+      body: {
+        en: "Icons that look great in a showcase turn into smudges at 20 px. Testing at real size settled what no mockup could.",
+        es: "Íconos que se ven increíbles en una presentación se vuelven manchas a 20 px. Probar al tamaño real resolvió lo que ningún mockup podía.",
+      },
+    },
+    {
+      title: { en: "Personality needs a fence", es: "La personalidad necesita una cerca" },
+      body: {
+        en: "Seasonal themes only work because they're confined to one corner. Everywhere else, the ERP stays quiet.",
+        es: "Los temas de temporada funcionan solo porque están encerrados en una esquina. En todo lo demás, el ERP se queda en silencio.",
+      },
+    },
+  ],
+  next: [
+    { en: "Card sorting with people from each area to group the 24 modules into sections. I proposed it; it's the natural next step.", es: "Card sorting con gente de cada área para agrupar los 24 módulos en secciones. Lo propuse y es el siguiente paso natural." },
+    { en: "Measure time to reach a module, by search and by scanning, before and after.", es: "Medir el tiempo para llegar a un módulo, con buscador y a la vista, antes y después." },
+    { en: "Raise the contrast of the active parent in dark mode, which is still 2.94:1.", es: "Subir el contraste del padre activo en modo oscuro, que sigue en 2.94:1." },
   ],
 };
 
@@ -1108,7 +1367,7 @@ const pos: Case = {
   ],
 };
 
-export const CASES: Case[] = [proyectos, login, celebraciones, pos];
+export const CASES: Case[] = [proyectos, navegacion, login, celebraciones, pos];
 
 export function findCase(slug?: string) {
   return CASES.find((c) => c.slug === slug);

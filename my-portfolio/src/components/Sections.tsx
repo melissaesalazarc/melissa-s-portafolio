@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import kanban from "../assets/casos/proyectos-kanban.webp";
+import nav from "../assets/casos/navegacion/after-desk-home-diciembre.webp";
 import login from "../assets/casos/login.webp";
 import celebraciones from "../assets/casos/celebraciones.webp";
 import pos from "../assets/casos/codelum/nueva-orden-modificadores-producto-seleccionado-desktop.webp";
@@ -21,10 +22,11 @@ const rise: Variants = {
 const inView = { initial: "hidden", whileInView: "show", viewport: { once: true, amount: 0.25 } } as const;
 
 // Página de cada caso.
-const SLUGS: (string | null)[] = ["projects-tasks", "sign-in", "celebrations", "point-of-sale"];
+const SLUGS: (string | null)[] = ["projects-tasks", "navigation", "sign-in", "celebrations", "point-of-sale"];
 
 const IMAGES: ({ src: string; w: number; h: number } | undefined)[] = [
   { src: kanban, w: 1440, h: 900 },
+  { src: nav, w: 2880, h: 1620 },
   { src: login, w: 1440, h: 900 },
   { src: celebraciones, w: 2880, h: 1620 },
   { src: pos, w: 2880, h: 2048 },
