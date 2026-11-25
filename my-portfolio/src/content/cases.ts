@@ -11,6 +11,7 @@ import pAfterIndex from "../assets/casos/proyectos/after-light-desk-indice.webp"
 import pMobKanban from "../assets/casos/proyectos/after-light-mob-tablero-kanban.webp";
 import pMobDetail from "../assets/casos/proyectos/after-light-mob-detalle-tarea.webp";
 import pDarkKanban from "../assets/casos/proyectos/after-dark-desk-tablero-kanban.webp";
+import pShell from "../assets/casos/proyectos/after-light-desk-shell-erp.webp";
 
 import lBefore from "../assets/casos/login/before-desk-login.webp";
 import lAfter from "../assets/casos/login/after-desk-login.webp";
@@ -113,8 +114,8 @@ const proyectos: Case = {
   slug: "projects-tasks",
   title: { en: "Projects & tasks", es: "Proyectos y tareas" },
   summary: {
-    en: "I turned a project-management module built in pieces into one system, while the dev team kept shipping new features on top of it.",
-    es: "Convertí un módulo de gestión de proyectos hecho por partes en un solo sistema, mientras el equipo de desarrollo seguía agregándole funciones.",
+    en: "I turned a project-management module built in pieces into one system, while the dev team kept shipping new features on top of it. Then I took that system to the frame of the whole ERP.",
+    es: "Convertí un módulo de gestión de proyectos hecho por partes en un solo sistema, mientras el equipo de desarrollo seguía agregándole funciones. Después llevé ese sistema al marco de todo el ERP.",
   },
   meta: [
     { label: { en: "Product", es: "Producto" }, value: { en: "PEXSS, Plato Express's internal ERP", es: "PEXSS, el ERP interno de Plato Express" } },
@@ -298,6 +299,23 @@ const proyectos: Case = {
           },
         },
         {
+          kind: "decision",
+          title: { en: "From one module to the whole ERP", es: "De un módulo a todo el ERP" },
+          body: {
+            en: "Once the module's system held up, I took it to the frame every PEXSS screen lives in: the sidebar and the header. The sidebar gained a module search, a single illustrated icon per area and groups that open in place, so people stop scrolling through a long list. The active page is one solid green pill, the only filled shape in the menu, and the whole menu collapses to give tables more room. The header keeps just the breadcrumb, a few icon actions and who's signed in. I shipped it first as a theme over the entire ERP and then as one that rolls out module by module, so each team gets it without breaking what they're building.",
+            es: "Cuando el sistema del módulo ya se sostenía solo, lo llevé al marco donde vive cada pantalla de PEXSS: la barra lateral y el encabezado. La barra ganó un buscador de módulos, un ícono ilustrado por área y grupos que se despliegan en su lugar, para que nadie tenga que recorrer una lista larga. La página activa es una sola píldora verde, la única forma rellena del menú, y el menú completo se contrae para darle espacio a las tablas. El encabezado se queda solo con la ruta, unas cuantas acciones en ícono y quién tiene la sesión abierta. Primero lo probé como tema sobre todo el ERP y después como uno que se despliega por módulos, para que cada equipo lo reciba sin romper lo que está construyendo.",
+          },
+        },
+        {
+          kind: "image",
+          img: { src: pShell, w: 1925, h: 791 },
+          wide: true,
+          caption: {
+            en: "The new PEXSS frame: module search, grouped navigation with one icon per area, a single active state and a light header. Fictitious data.",
+            es: "El nuevo marco de PEXSS: buscador de módulos, navegación agrupada con un ícono por área, un solo estado activo y un encabezado ligero. Datos ficticios.",
+          },
+        },
+        {
           kind: "list",
           items: [
             { en: "Measure before moving: computed styles, real sizes and contrast instead of eyeballing.", es: "Medir antes de mover: estilos calculados, tamaños reales y contraste en lugar de ajustar a ojo." },
@@ -319,6 +337,7 @@ const proyectos: Case = {
         [{ en: "Chart color", es: "Color en gráficas" }, { en: "By position", es: "Por posición" }, { en: "Fixed per priority and column", es: "Fijo por prioridad y columna" }],
         [{ en: "Contrast", es: "Contraste" }, { en: "Red 3.75:1, amber 2.15:1", es: "Rojo 3.75:1, ámbar 2.15:1" }, { en: "4.71:1 and 5.02:1, no new colors", es: "4.71:1 y 5.02:1, sin colores nuevos" }],
         [{ en: "Modals", es: "Modales" }, { en: "Each with its own design", es: "Cada uno con su diseño" }, { en: "One canon, 31 Cancel buttons aligned", es: "Un canon; 31 botones «Cancelar» alineados" }],
+        [{ en: "Reach", es: "Alcance" }, { en: "One module", es: "Un módulo" }, { en: "Sidebar and header for the whole ERP", es: "Barra lateral y encabezado de todo el ERP" }],
       ],
     },
     {
